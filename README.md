@@ -12,7 +12,7 @@ Lab01
 
 Задание 3 
 
-![Тест задание 3](Images/lab01/test_lab_01_ex03.png)
+![Тест задание 3](images/lab01/test_lab_01_ex03.png)
 
 Задание 4
 
