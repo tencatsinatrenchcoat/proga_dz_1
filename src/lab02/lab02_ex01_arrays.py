@@ -24,7 +24,7 @@ def unique_sorted(nums_unique: list[float | int]) -> list[float | int]:
 print("unique_sorted", nums_unique, "--->", unique_sorted(nums_unique))
 
 
-mat = [[1, 2], "ab"] #cюда тест кейс
+mat = [[1, 2], (3, 4, 5)] #cюда тест кейс
 def flatten(mat: list[list | tuple]) -> list:
     result = []
     for rows in mat:
