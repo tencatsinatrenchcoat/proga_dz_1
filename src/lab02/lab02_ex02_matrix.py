@@ -1,4 +1,4 @@
-transpose_mat = [[1, 2], (3, 4, 5)] #сюда тест кейс
+transpose_mat = [[1, 2, 3]] #сюда тест кейс
 def transpose(transpose_mat: list[list[float | int]]) -> list[list]:
     result = []
     if not transpose_mat:
@@ -11,7 +11,7 @@ def transpose(transpose_mat: list[list[float | int]]) -> list[list]:
         return result
 print("transpose", transpose_mat, "--->", transpose(transpose_mat))
 
-row_mat = [[1, 2], (3, 4, 5)] #сюда тест кейс
+row_mat = [[1, 2, 3], [4, 5, 6]] #сюда тест кейс
 def row_sums(row_mat: list[list[float | int]]) -> list[float]:
     result = []
     for row in row_mat:
@@ -23,7 +23,7 @@ def row_sums(row_mat: list[list[float | int]]) -> list[float]:
 print("row_sums", row_mat, "--->", row_sums(row_mat))
 
 
-col_mat = [[1, 2], (3, 4, 5)] #сюда тест кейс
+col_mat = [[1, 2, 3], [4, 5, 6]] #сюда тест кейс
 def col_sums(col_mat: list[list[float | int]]) -> list[float]:
     result = []
     for row in row_mat:
