@@ -1,38 +1,35 @@
-mat = [[1, 2], [3, 4]]
-def transpose(mat: list[list[float | int]]) -> list[list]:
-    row = len(mat[0])
+transpose_mat = [] #сюда тест кейс
+def transpose(transpose_mat: list[list[float | int]]) -> list[list]:
     result = []
-    if not mat:
+    if not transpose_mat:
         return []
-    for i in mat:
-        if row != len(i):
+    for i in transpose_mat:
+        if len(transpose_mat[0]) != len(i):
             return ValueError
     else:
-        result = [list(i) for i in zip(*mat)]
+        result = [list(i) for i in zip(*transpose_mat)]
         return result
-print(transpose(mat))
+print("transpose", transpose_mat, "--->", transpose(transpose_mat))
 
-mat = [[1,2], [3,4]]
-def row_sums(mat: list[list[float | int]]) -> list[float]:
-    row_length = len(mat[0])
+row_mat = [[1, 2], [3]] #сюда тест кейс
+def row_sums(row_mat: list[list[float | int]]) -> list[float]:
     result = []
-    for row in mat:
-        if row_length != len(row):
+    for row in row_mat:
+        if len(row_mat[0]) != len(row):
             return ValueError
         else:
             result.append(sum(row))
     return result
-print(row_sums(mat))
+print("row_sums", row_mat, "--->", row_sums(row_mat))
 
 
-
-def col_sums(mat: list[list[float | int]]) -> list[float]:
-    height_column = len(mat[0])
+col_mat = [[1, 2], [3]] #сюда тест кейс
+def col_sums(col_mat: list[list[float | int]]) -> list[float]:
     result = []
-    for column in mat:
-        if height_column != len(column):
-            return ValueError
+    for row in row_mat:
+        if len(row_mat[0]) != len(row):
+                return ValueError
         else:
-            result = [sum(column) for column in zip(*mat)]
-            return result
-print(col_sums(mat))
+            result = [sum(col) for col in zip(*col_mat)]
+    return result
+print("col_sums", col_mat, "--->", col_sums(col_mat))
