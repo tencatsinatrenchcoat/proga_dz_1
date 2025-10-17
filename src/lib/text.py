@@ -11,12 +11,12 @@ def normalize(text: str, *, casefold: bool = True, yo2e: bool = True) -> str:
     return text
 
 
-
+import re
 def tokenize(text: str) -> list[str]:
     if not isinstance(text, str):
         return TypeError
     result = []
-    result = text.split('\w')
+    result = re.findall(r'\w+', text)
     return result
 
 
@@ -31,11 +31,14 @@ def count_freq(tokens: list[str]) -> dict[str, int]:
 
 
 def top_n(freq: dict[str, int], n: int = 5) -> list[tuple[str, int]]:
-    if not isinstance(freq, list):
+    result = []
+    if not isinstance(freq, dict):
         return TypeError
-    if not isinstance(n, int):
+    if not isinstance(n, int) or n <= 0:
         return TypeError
-    return reversed(sorted(freq))
+    result = sorted(freq.items(), key=lambda item: item[1], reverse=True)[:n]
+    return result
+        
     
 
 
@@ -57,5 +60,5 @@ print(count_freq(["a","b","a","c","b","a"]))
 print(count_freq(["bb","aa","bb","aa","cc"]))
 
 print("top_n")
-print(top_n(["a","b","a","c","b","a"]))
-print(top_n(["bb","aa","bb","aa","cc"]))
+print(top_n(count_freq(["a","b","a","c","b","a"]), n = 2))
+print(top_n(count_freq(["bb","aa","bb","aa","cc"]), n = 2))
