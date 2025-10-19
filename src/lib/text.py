@@ -26,6 +26,9 @@ def count_freq(tokens: list[str]) -> dict[str, int]:
     if not isinstance(tokens, list):
         return TypeError
     for word in tokens:
+        if not isinstance(word, str):
+            return TypeError
+    for word in tokens:
         counts[word] = counts.get(word, 0) + 1
     return counts
 
@@ -34,6 +37,9 @@ def top_n(freq: dict[str, int], n: int = 5) -> list[tuple[str, int]]:
     result = []
     if not isinstance(freq, dict):
         return TypeError
+    for element in freq:
+        if not isinstance(element, (str, int)):
+            return TypeError
     if not isinstance(n, int) or n <= 0:
         return TypeError
     result = sorted(freq.items(), key=lambda item: item[1], reverse=True)[:n]
