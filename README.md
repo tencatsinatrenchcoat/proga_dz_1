@@ -1,4 +1,101 @@
 # proga_dz_1 wow
+Lab 03
+Lab03
+```python
+def normalize(text: str, *, casefold: bool = True, yo2e: bool = True) -> str:
+    if not isinstance(text, str):
+        return TypeError
+    if casefold:
+        text = text.casefold()
+    if yo2e:
+        while "ё" in text or "Ё" in text:
+            text = text.replace("ё", "e", 1).replace("Ё", "Е", 1)
+    text = text.replace("\t", " ").replace("\r", " ").replace("/n", " ")
+    text = ' '.join(text.split())
+    return text
+
+import re
+def tokenize(text: str) -> list[str]:
+    if not isinstance(text, str):
+        return TypeError
+    result = []
+    result = re.findall(r'\w+(?:-\w+)*', text)
+    return result
+
+def count_freq(tokens: list[str]) -> dict[str, int]:
+    counts = {}
+    if not isinstance(tokens, list):
+        return TypeError
+    for word in tokens:
+        if not isinstance(word, str):
+            return TypeError
+    for word in tokens:
+        counts[word] = counts.get(word, 0) + 1
+    return counts
+
+
+def top_n(freq: dict[str, int], n: int = 5) -> list[tuple[str, int]]:
+    result = []
+    if not isinstance(freq, dict):
+        return TypeError
+    for element in freq:
+        if not isinstance(element, (str, int)):
+            return TypeError
+    if not isinstance(n, int) or n <= 0:
+        return TypeError
+    result = sorted(freq.items(), key=lambda item: item[1], reverse=True)[:n]
+    return result
+        
+    
+
+
+print("normalize")
+print(normalize("ПрИвЕт\nМИр\t"))
+print(normalize("ёжик, Ёлка"))
+print(normalize("Hello\r\nWorld"))
+print(normalize("  двойные   пробелы  "))
+
+print("tokenize")
+print(tokenize("привет мир"))
+print(tokenize("hello,world!!!"))
+print(tokenize("по-настоящему круто"))
+print(tokenize("2025 год"))
+print(tokenize("emoji 😀 не слово"))
+
+print("count_freq")
+print(count_freq(["a","b","a","c","b","a"]))
+print(count_freq(["bb","aa","bb","aa","cc"]))
+
+print("top_n")
+print(top_n(count_freq(["a","b","a","c","b","a"]), n = 2))
+print(top_n(count_freq(["bb","aa","bb","aa","cc"]), n = 2))
+```
+![Тесты задание 1](images/lab03_images/lab3_ex1_examples.png)
+
+normalize
+tokenize
+count_freq
+top_n
+
+```python
+from sys import stdin
+import os
+directory = os.getcwd()
+module_path = os.path.join(directory, "lib")
+from lib.text import normalize, top_n, count_freq
+def read():
+    text = stdin.read() 
+    normalize_text = normalize(text)  
+    print(f"всего слов: {len(normalize_text)}")
+    print(f"уникальных слов: {len(set(normalize_text))}")
+    freq = count_freq(list(normalize_text))
+    print(f"топ-5: {top_n(freq, 5)}")
+if __name__ == "__main__":
+    read()
+
+# запускается только с команды "echo "Привет, мир! Привет!!!" | py src/lab03/text_stats.py" без $ и с py вместо python
+# не видит модули несмотря на __init__.py и module_path
+```
 Lab 02
 
 Задание А

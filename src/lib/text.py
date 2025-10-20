@@ -6,7 +6,7 @@ def normalize(text: str, *, casefold: bool = True, yo2e: bool = True) -> str:
     if yo2e:
         while "ё" in text or "Ё" in text:
             text = text.replace("ё", "e", 1).replace("Ё", "Е", 1)
-    text = text.replace('\t', ' ').replace('\r', ' ')
+    text = text.replace("\t", " ").replace("\r", " ")
     text = ' '.join(text.split())
     return text
 
@@ -16,7 +16,7 @@ def tokenize(text: str) -> list[str]:
     if not isinstance(text, str):
         return TypeError
     result = []
-    result = re.findall(r'\w+', text)
+    result = re.findall(r'\w+(?:-\w+)*', text)
     return result
 
 
