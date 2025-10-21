@@ -1,11 +1,8 @@
-import sys
 from sys import stdin
-import os
-path = sys.path.append((os.path.abspath(os.path.join(os.path.dirname(__file__), '../src'))))
-if path not in sys.path:
-    sys.path.append(path)
+import sys
+sys.path.append('library')
 
-from src.lib.text import normalize, top_n, count_freq
+from library.text import normalize, top_n, count_freq
 def read():
     text = stdin.read() 
     normalize_text = normalize(text)  
