@@ -10,8 +10,8 @@ def read():
     normal_text = normalize(text) 
     token_text = tokenize(text)
     print(f"всего слов:{len(token_text)}")
-    print(f"уникальных слов:{len(tokenize(normal_text))}")
-    freq = count_freq(list(tokenize(normal_text)))
+    print(f"уникальных слов:{len(set(tokenize(normal_text)))}")
+    freq = count_freq(tokenize(normal_text))
     print(f"топ-5:{top_n(freq, 5)}")
 if __name__ == "__main__":
     read()
