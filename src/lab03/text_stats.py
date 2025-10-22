@@ -9,19 +9,11 @@ def read():
     text = stdin.read() 
     normal_text = normalize(text) 
     token_text = tokenize(text)
-    print(text)
-    print(token_text)
-    print(normal_text)
-    print(f"всего слов:{token_text}")
+    print(f"всего слов:{len(token_text)}")
     print(f"уникальных слов:{len(tokenize(normal_text))}")
-    freq = count_freq(list(token_text))
+    freq = count_freq(list(tokenize(normal_text)))
     print(f"топ-5:{top_n(freq, 5)}")
-    print(normal_text)
 if __name__ == "__main__":
     read()
 
-#echo "Привет, мир! Привет!!!" | py src/lab03/text_stats.py
-
-# не видит модули несмотря на __init__.py и module_path
-#it cant read cyrillic from command line for some reason??????
-#^supposedly a windows terminal issue or some bs like that
+#echo "Privet, mir! Privet!!!" | py src/lab03/text_stats.py
