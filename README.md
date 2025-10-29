@@ -1,3 +1,58 @@
+# Lab 04
+## Задание A
+### Мини-тесты
+Пример чтения
+![Тест задание 1](images/lab04_images/inside_input_file_for_example_io.png)
+![Тест задание 1](images/lab04_images/io_input_example_console.png)
+
+Пример записи
+```python
+write_csv([("word","count"),("test",3)], "data/check.csv")
+```
+![Тест задание 1](images/lab04_images/check_csv_created_for_example.png)
+
+### Краевые случаи
+
+пустой файл --> пустая строка
+![Тест задание 1](images/lab04_images/empty_console_io.png)
+![Тест задание 1](images/lab04_images/empty_pile.png)
+
+файл читается полностью по тз
+```python
+text = r.read() 
+```
+лучше так не делать, так как при слишком большом объеме файла 
+
+write csv пустой --> пустой файл
+write csv header = ("a","b") ---> только заголовок в файле
+
+### Принцип работы
+
+## Задание B
+input txt не существует --> объяснение ошибки
+
+пустой вход --> файл только с words, count
+
+![Тест задание 1](images/lab04_images/report_if_empty.png)
+
+чтобы поменять кодировку, в команде необходимо это прописать
+
+например
+
+```python
+py src/lab04/text_report.py --in data/input.txt --encoding cp1251 
+
+поменять на 
+
+py src/lab04/text_report.py --in data/input.txt --encoding utf8
+```
+(из-за виндовс используется py а не python)
+
+получим
+
+![Тест задание 1](images/lab04_images/enccp1251_console_example.png)
+![Тест задание 1](images/lab04_images/result_diff_encoding.png)
+
 # Lab03
 ```python
 import re
