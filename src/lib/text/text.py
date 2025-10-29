@@ -41,5 +41,5 @@ def top_n(freq: dict[str, int], n: int = 5) -> list[tuple[str, int]]:
             return TypeError
     if not isinstance(n, int) or n <= 0:
         return TypeError
-    result = sorted(freq.items(), key=lambda item: item[1], reverse=True)[:n]
+    result = sorted(freq.items(), key=lambda item: (-item[1], item[0]))[:n]
     return result
