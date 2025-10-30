@@ -3,6 +3,7 @@ import sys
 import os
 import csv
 from sys import path
+from pathlib import Path
 file_path = os.path.dirname(os.path.abspath(__file__))
 lib_path = os.path.join(file_path, "..\\lib\\text")
 path.append(lib_path)
@@ -21,10 +22,16 @@ def sorted_word_counts(freq: dict[str, int]) -> list[tuple[str, int]]:
     return sorted(freq.items(), key=lambda kv: (-kv[1], kv[0]))
 
 def report_generator():
-    with open("data/lab04/input.txt", "r", encoding = "utf8") as r:
+    inputfile=Path("data/lab04/input.txt")
+    outputfile=Path("data/report.csv")
+    with open(inputfile, "r", encoding = "utf8") as r:
         text = r.read()
+    if inputfile.suffix.lower() != '.txt':
+        raise ValueError 
+    if outputfile.suffix.lower() != '.csv':
+        raise ValueError 
         try:
-            with open("data/report.csv", "w", newline = "", encoding = "utf8") as f:
+            with open(outputfile, "w", newline = "", encoding = "utf8") as f:
                 writer = csv.DictWriter(f, fieldnames=["word", "count"])
                 writer.writeheader()
                 for word, count in sorted_word_counts(frequencies_from_text(text)):
@@ -38,6 +45,7 @@ def report_generator():
 if __name__ == "__main__":
     report_generator()
 
+#check for json/csv
 
 
 
