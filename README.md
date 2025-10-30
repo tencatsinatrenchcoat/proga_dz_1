@@ -35,6 +35,12 @@ write csv header = ("a","b") ---> только заголовок в файле
 ## Задание B
 input txt не существует --> объяснение ошибки
 
+```python
+except FileNotFoundError:
+            print("файла нет") 
+            sys.exit(1)      
+```
+
 пустой вход --> файл только с words, count
 
 ![Тест задание 1](images/lab04_images/report_if_empty.png)
