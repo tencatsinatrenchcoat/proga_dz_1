@@ -29,6 +29,7 @@ text = r.read()
 write csv пустой --> пустой файл
 write csv header = ("a","b") ---> только заголовок в файле
 
+![Тест задание 1](images/lab04_images/header_ab_check_csv.png)
 
 
 ## Задание B
