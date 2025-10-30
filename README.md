@@ -2,6 +2,7 @@
 ## Задание A
 ### Мини-тесты
 Пример чтения
+
 ![Тест задание 1](images/lab04_images/inside_input_file_for_example_io.png)
 ![Тест задание 1](images/lab04_images/io_input_example_console.png)
 
@@ -14,6 +15,7 @@ write_csv([("word","count"),("test",3)], "data/check.csv")
 ### Краевые случаи
 
 пустой файл --> пустая строка
+
 ![Тест задание 1](images/lab04_images/empty_console_io.png)
 ![Тест задание 1](images/lab04_images/empty_pile.png)
 
@@ -27,7 +29,7 @@ text = r.read()
 write csv пустой --> пустой файл
 write csv header = ("a","b") ---> только заголовок в файле
 
-### Принцип работы
+
 
 ## Задание B
 input txt не существует --> объяснение ошибки
