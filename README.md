@@ -24,7 +24,7 @@ def json_to_csv(json_path: str, csv_path: str) -> None:
     
     try:
         with open(input_json, "r", encoding = "utf8") as r:
-            text = json.load(r)
+            text = json.load(r) #читает файл 
             if not text:
                 raise ValueError ("файл пустой")
             if not isinstance(text, list):
@@ -32,16 +32,16 @@ def json_to_csv(json_path: str, csv_path: str) -> None:
             for values in text:
                 if not isinstance(values, dict):
                     raise ValueError("в файле не cписок словарей")
-            headers = set()
+            headers = set() 
             for item in text:
-                headers.update(item.keys())
+                headers.update(item.keys()) #собирает все уникальные заголовки в список
     except json.JSONDecodeError:
         "json decode error"
 
     with open(output_csv, "w", encoding = "utf8") as w:
-        w = csv.DictWriter(w, fieldnames=headers)
-        w.writeheader()
-        w.writerows(text)
+        w = csv.DictWriter(w, fieldnames=headers) #записывает словари в csv файл и определяет что будет заголовками столбцов
+        w.writeheader() #записывает заголовки таблицы
+        w.writerows(text) #записывает значения из словарей
 
 
 def csv_to_json(csv_path: str, json_path: str) -> None:
@@ -62,18 +62,18 @@ def csv_to_json(csv_path: str, json_path: str) -> None:
         raise ValueError ("неверный тип output файла")
     
     with open(input_csv, "r", encoding = "utf8") as r:
-        read = csv.DictReader(r)
+        read = csv.DictReader(r) #читает файл
         if read.fieldnames is None:
             raise ValueError ("нет заголовков")
-        row1 = next(read, None)
+        row1 = next(read, None) #читает строку после заголовков, если он пустой возвращает none
         if row1 is None:
             raise ValueError("файл пустой")
-        readfordump = [row1] + list(read)
+        readfordump = [row1] + list(read) #тк мы уже читали первую строку для проверки мз-за чего ее нужно добавить к оставшимся которые питон еще не прочитал
 
 
        
     with open(output_json, "w", encoding = "utf8") as w:
-        json.dump(readfordump, w, ensure_ascii=False, indent = 2)
+        json.dump(readfordump, w, ensure_ascii=False, indent = 2) #записывает файл 
 ```
 Примеры успешной конвертации
 json to csv
@@ -117,23 +117,23 @@ def csv_to_xlsx(csv_path: str, xlsx_path: str) -> None:
         if not rows:
            return ValueError
             
-    w = Workbook()
-    sheet1 = w.active
-    sheet1.title = "sheet 1"
-    sheet1.append(read.fieldnames)
+    w = Workbook() #создает объект для записи в xlsx файл
+    sheet1 = w.active #получает страницу таблицы в которую будут записываться данные
+    sheet1.title = "sheet 1" #можно поменять название
+    sheet1.append(read.fieldnames) #добавляет заголовки столбцов
 
     for row in rows:
-        sheet1.append(list(row.values()))
+        sheet1.append(list(row.values())) #берет значения из строк и добавляет в таблицу
 
     for column in sheet1.columns:
         max_length = 0
-        column_letter = column[0].column_letter
+        column_letter = column[0].column_letter #
 
         for cell in column:
-            if cell.value is not None:
-                max_length = max(max_length, len(str(cell.value)))
-                sheet1.column_dimensions[column_letter].width = max(max_length + 2, 8)
-    w.save(output_xlsx)
+            if cell.value is not None: #
+                max_length = max(max_length, len(str(cell.value))) #находит максимальную длину значения в столбце
+                sheet1.column_dimensions[column_letter].width = max(max_length + 2, 8) #ставит ширину столбца как не превышающую 8, но добавляет 2 символа
+    w.save(output_xlsx) #сохраняет файл
 ```
 Пример успешной конвертации
 ![Тест 2.1](images/lab05_images/exb_before.png)
