@@ -30,18 +30,18 @@ def report_generator():
         raise ValueError 
     if outputfile.suffix.lower() != '.csv':
         raise ValueError 
-        try:
-            with open(outputfile, "w", newline = "", encoding = "utf8") as f:
-                writer = csv.DictWriter(f, fieldnames=["word", "count"])
-                writer.writeheader()
-                for word, count in sorted_word_counts(frequencies_from_text(text)):
-                    writer.writerow({"word": word, "count": count})
-        except FileNotFoundError:
-            print("файла нет") 
-            sys.exit(1)      
-        print(f"всего слов: {len(tokenize(text))}")
-        print(f"уникальных: {len(set(tokenize(text)))}")
-        print(f"топ-5: {top_n(count_freq(tokenize(normalize(text))))}")
+    try:
+        with open(outputfile, "w", newline = "", encoding = "utf8") as f:
+            writer = csv.DictWriter(f, fieldnames=["word", "count"])
+            writer.writeheader()
+            for word, count in sorted_word_counts(frequencies_from_text(text)):
+                writer.writerow({"word": word, "count": count})
+    except FileNotFoundError:
+        print("файла нет") 
+        sys.exit(1)      
+    print(f"всего слов: {len(tokenize(text))}")
+    print(f"уникальных: {len(set(tokenize(text)))}")
+    print(f"топ-5: {top_n(count_freq(tokenize(normalize(text))))}")
 if __name__ == "__main__":
     report_generator()
 
