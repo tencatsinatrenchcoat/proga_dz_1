@@ -15,9 +15,9 @@
     "city": "Kazan"
   },
   {
-    "name": "Dana",
-    "age": 21,
-    "city": "SPB"
+    "name": null,
+    "age": false,
+    "city": "False"
   },
   {
     "name": "Andrey",

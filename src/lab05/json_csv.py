@@ -72,4 +72,4 @@ def csv_to_json(csv_path: str, json_path: str) -> None:
         json.dump(readfordump, w, ensure_ascii=False, indent = 2)
 
 
-csv_to_json("data/samples/peoplecsv.csv", "data/out/output.json")
+json_to_csv("data/samples/people.json", "data/out/output.csv")
