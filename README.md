@@ -59,17 +59,11 @@ if __name__ == "__main__":
 ```
 ### Тест кейсы
 
-![Тест](images/lab06_images/lab06_command_json2csv.png)
+![Тест](images/lab06_images/lab06_cat_example.png)
 
-![Тест](images/lab06_images/lab06_json2csv_res.png)
+![Тест](images/lab06_images/lab06_stats_examples.png)
 
-![Тест](images/lab06_images/command2imsoewewfewewgrg.png)
-
-![Тест](images/lab06_images/jsonres.png)
-
-![Тест](images/lab06_images/command3aaaa.png)
-
-![Тест](images/lab06_images/xlsxconvres.png)
+![Тест](images/lab06_images/lab06_stats_filenotexist.png)
 
 ## Convert
 ```python
@@ -115,15 +109,18 @@ if __name__ == "__main__":
     convert()
 ```
 ### Тест кейсы
-![Тест](images/lab06_images/lab06_cat_example.png)
 
-![Тест](images/lab06_images/lab06_stats_examples.png)
+![Тест](images/lab06_images/lab06_command_json2csv.png)
 
-![Тест](images/lab06_images/lab06_stats_filenotexist.png)
+![Тест](images/lab06_images/lab06_json2csv_res.png)
 
+![Тест](images/lab06_images/command2imsoewewfewewgrg.png)
 
+![Тест](images/lab06_images/jsonres.png)
 
+![Тест](images/lab06_images/command3aaaa.png)
 
+![Тест](images/lab06_images/xlsxconvres.png)
 
 
 # Lab 05
