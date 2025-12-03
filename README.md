@@ -1,5 +1,5 @@
 # Lab07
-[README](src\lab07\README.md)
+[README](https://github.com/tencatsinatrenchcoat/proga_dz_1/blob/main/src/lab07/README.md)
 
 # Lab06
 ## Text
