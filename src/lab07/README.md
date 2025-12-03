@@ -10,7 +10,7 @@
 
 ## black --check
 
-![Тест](images/lab06_images/lab06_stats_filenotexist.png)
+![Тест](https://github.com/tencatsinatrenchcoat/proga_dz_1/blob/main/images/lab07_images/blackcheck.png)
 
 ## pytest
 
