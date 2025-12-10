@@ -47,11 +47,5 @@ def students_from_json(path):
 
         with open(path, "w", encoding="utf-8") as w:
             json.dump(output_list, w, ensure_ascii=False, indent=2)
-        
+
         return output_list
-    
-
-
-
-
-

@@ -3,7 +3,7 @@
 
 # Lab 08
 
-[README]()
+[README](https://github.com/tencatsinatrenchcoat/proga_dz_1/blob/main/src/lab08/README.md)
 
 # Lab07
 [README](https://github.com/tencatsinatrenchcoat/proga_dz_1/blob/main/src/lab07/README.md)
