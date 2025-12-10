@@ -1,0 +1,14 @@
+[
+  {
+    "fio": "Ivanov Ivan Ivanovich",
+    "birthdate": "2007-12-30",
+    "group": "BIVT-14",
+    "gpa": 5.0
+  },
+  {
+    "fio": "Petrov Petr Petrovich",
+    "birthdate": "2004-02-20",
+    "group": "BIVT-1",
+    "gpa": 3.84
+  }
+]

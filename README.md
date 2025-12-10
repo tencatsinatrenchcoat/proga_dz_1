@@ -1,3 +1,10 @@
+# Lab 09
+[README]()
+
+# Lab 08
+
+[README]()
+
 # Lab07
 [README](https://github.com/tencatsinatrenchcoat/proga_dz_1/blob/main/src/lab07/README.md)
 
