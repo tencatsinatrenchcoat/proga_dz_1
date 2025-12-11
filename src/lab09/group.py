@@ -43,14 +43,16 @@ class Group:
         with open(self, "a", newline="", encoding="utf-8") as a:
             writer = csv.DictWriter(a, fieldnames=fieldnames)
             writer.writerow(
-                [student.fio, student.birthdate, student.group, student.gpa]
+                {"fio": student.fio,
+                 "birthdate": student.birthdate,
+                 "group": student.group,
+                 "gpa": student.gpa,}
             )
-        return
 
     def find(self, substr: str):
         substr = substr.lower()
         return [s for s in self._read_all() if substr in s.fio.lower()]
-
+    
     def remove(self, fio: str):
         students = self._read_all()
         students = [s for s in students if s.fio != fio]
@@ -59,7 +61,6 @@ class Group:
             writer.writerow(self.headers)
             for s in students:
                 writer.writerow([s.fio, s.birthdate, s.group, s.gpa])
-
 
     def update(self, fio: str, **fields) -> bool:
         students = self._read_all()
@@ -83,4 +84,4 @@ class Group:
         return updated
 
 
-Group.add("data\\lab09\\students.csv", Student("Simonov Ivan Ivanovich", "1997-03-04", "ISIT-3", 4.33))
+Group.remove("data\\lab09\\students.csv", Student("Simonov Ivan Ivanovich", "1997-03-04", "ISIT-3", 4.33))
