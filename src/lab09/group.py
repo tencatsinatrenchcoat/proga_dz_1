@@ -9,13 +9,14 @@ class Group:
     def __init__(self, storage_path: str):
         self.path = Path(storage_path)
         if not self.path.exists():
-            with open(self.path, "w", newline="", encoding="utf-8") as w:
+            raise ValueError
+        with open(self, "w", newline="", encoding="utf-8") as w:
                 writer = csv.DictWriter(w)
                 writer.writeheader()
 
     def _read_all(self):
         student_list = []
-        with open(self.path, "r", encoding="utf-8") as r:
+        with open(self, "r", encoding="utf-8") as r:
             reader = csv.DictReader(r)
             if reader.fieldnames != self.headers:
                 raise ValueError()
@@ -38,8 +39,9 @@ class Group:
         return self._read_all()
 
     def add(self, student: Student):
-        with open(self.path, "a", newline="", encoding="utf-8") as a:
-            writer = csv.DictWriter(a)
+        fieldnames = ["fio", "birthdate", "group", "gpa"]
+        with open(self, "a", newline="", encoding="utf-8") as a:
+            writer = csv.DictWriter(a, fieldnames=fieldnames)
             writer.writerow(
                 [student.fio, student.birthdate, student.group, student.gpa]
             )
@@ -59,23 +61,26 @@ class Group:
                 writer.writerow([s.fio, s.birthdate, s.group, s.gpa])
 
 
-def update(self, fio: str, **fields) -> bool:
-    students = self._read_all()
-    updated = False
+    def update(self, fio: str, **fields) -> bool:
+        students = self._read_all()
+        updated = False
 
-    for student in students:
-        if student.fio == fio:
-            for key, value in fields.items():
-                if hasattr(student, key):
-                    new_value = float(value) if key == "gpa" else value
-                    setattr(student, key, new_value)
-            updated = True
+        for student in students:
+            if student.fio == fio:
+                for key, value in fields.items():
+                    if hasattr(student, key):
+                        new_value = float(value) if key == "gpa" else value
+                        setattr(student, key, new_value)
+                updated = True
 
-    if updated:
-        with open(self.path, "w", encoding="utf-8", newline="") as f:
-            writer = csv.writer(f)
-            writer.writerow(self.headers)
-            for s in students:
-                writer.writerow([s.fio, s.birthdate, s.group, s.gpa])
+        if updated:
+            with open(self.path, "w", encoding="utf-8", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow(self.headers)
+                for s in students:
+                    writer.writerow([s.fio, s.birthdate, s.group, s.gpa])
 
-    return updated
+        return updated
+
+
+Group.add("data\\lab09\\students.csv", Student("Simonov Ivan Ivanovich", "1997-03-04", "ISIT-3", 4.33))
