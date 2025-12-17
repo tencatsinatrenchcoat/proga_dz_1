@@ -1,12 +1,15 @@
+# Lab 10
+[README 10]()
+
 # Lab 09
-[README]()
+[README 9]()
 
 # Lab 08
 
-[README](https://github.com/tencatsinatrenchcoat/proga_dz_1/blob/main/src/lab08/README.md)
+[README 8](https://github.com/tencatsinatrenchcoat/proga_dz_1/blob/main/src/lab08/README.md)
 
 # Lab07
-[README](https://github.com/tencatsinatrenchcoat/proga_dz_1/blob/main/src/lab07/README.md)
+[README 7](https://github.com/tencatsinatrenchcoat/proga_dz_1/blob/main/src/lab07/README.md)
 
 # Lab06
 ## Text

@@ -32,8 +32,10 @@ class Student:
 
     def age(self) -> int:
         # TODO: добавить нормальную валидацию формата даты и диапазона gpa
-        date = datetime.strptime(self.birthdate, "%Y-%m-%d").date() #перевод строки в дату bez vremeni
-        today = datetime.today().date() 
+        date = datetime.strptime(
+            self.birthdate, "%Y-%m-%d"
+        ).date()  # перевод строки в дату bez vremeni
+        today = datetime.today().date()
         current_age = today.year - date.year
         if date.month < today.month or (
             date.month == today.month and date.day < today.day
