@@ -52,7 +52,7 @@ class Queue:
         if self.is_empty():
             return None
         else:
-            return self
+            return self._data[0]
 
 
     def is_empty(self) -> bool:   
@@ -83,7 +83,7 @@ q = Queue([12,24,36,48])
 print(f'первый элемент: {q.peek()}')
 q.dequeue()
 print(f'первый элемент после удаления числа: {q.peek()}')
-q.enqueue(52)
-print(f'первый элемент после добавления: {q.peek()}')
+q.enqueue(1000)
+print(f'первый элемент после добавления в конец: {q.peek()}')
 print(f'пустая ли очередь? {q.is_empty()}')
 print(f'количество элементов в очереди : {len(q)}')

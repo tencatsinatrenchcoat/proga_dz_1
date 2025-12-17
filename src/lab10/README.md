@@ -54,7 +54,7 @@ class Queue:
         if self.is_empty():
             return None
         else:
-            return self
+            return self._data[0]
 
 
     def is_empty(self) -> bool:   
