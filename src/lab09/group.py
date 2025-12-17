@@ -41,12 +41,11 @@ class Group:
                     "gpa": student.gpa,
                 }
             )
-  
 
     def find(self, substr: str):
         # TODO: реализовать метод find()
         substr = substr.casefold()
-        with self.path.open('r', newline='', encoding='utf-8') as r:
+        with self.path.open("r", newline="", encoding="utf-8") as r:
             reader = csv.reader(r)
             res = []
             for row in reader:
@@ -55,24 +54,25 @@ class Group:
             return res
 
     def remove(self, fio: str):
-        with open(self.path,'r', newline='', encoding='utf-8') as r:
-            reader = csv.reader(r)
-            # idk tf to do here honestly 
-
-        with self.path.open('w', newline='', encoding='utf-8') as w:
+        students = self._read_all()
+        filtered_students = (s for s in students if s.fio != fio)
+        with self.path.open("w", newline="", encoding="utf-8") as w:
             writer = csv.DictWriter(w, fieldnames=self.headers)
-            writer.writerow(self.headers)
-            students = #idk what to make it take here besides [s for s in students if s[0] != fio] which doesnt seem to work
+            writer.writeheader()
+            for student in filtered_students:
+                print(student)
+                writer.writerow(student.to_dict())
+
+    def update(self, fio: str, **fields):
+        students = self._read_all()
+        students = [s.to_dict() for s in students]
+        for student in students:
+            if student["fio"] != fio:
+                continue
+            for field, value in fields.items():
+                student[field] = value
+        with self.path.open("w", newline="", encoding="utf-8") as w:
+            writer = csv.DictWriter(w, fieldnames=self.headers)
+            writer.writeheader()
             for student in students:
-                writer.writerow(           #it doesnt see student as possessing the attributes  
-                    {
-                    "fio": student.fio,
-                    "birthdate": student.birthdate,
-                    "group": student.group,
-                    "gpa": student.gpa,
-                    }
-
-                )
-
-    # def update(self, fio: str, **fields):
-    #     # TODO: реализовать метод update()
+                writer.writerow(student)
