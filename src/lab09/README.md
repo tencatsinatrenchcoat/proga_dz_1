@@ -80,19 +80,19 @@ class Group:
 ```
 
 изначальный csv
-![test]()
+![test](https://github.com/tencatsinatrenchcoat/proga_dz_1/blob/main/images/lab09_images/ogcsv.png)
 
 добавление студента
-![test]()
+![test](https://github.com/tencatsinatrenchcoat/proga_dz_1/blob/main/images/lab09_images/csvadded.png)
 
-поиск "ив"
+поиск "пет"
 
-![test]()
+![test](https://github.com/tencatsinatrenchcoat/proga_dz_1/blob/main/images/lab09_images/poiskpetcsv.png)
 
 удаление студента
 
-![test]()
+![test](https://github.com/tencatsinatrenchcoat/proga_dz_1/blob/main/images/lab09_images/removedpetrcsv.png)
 
 финальный csv после изменения данных студента
 
-![test]()
+![test](https://github.com/tencatsinatrenchcoat/proga_dz_1/blob/main/images/lab09_images/csvaltered.png)

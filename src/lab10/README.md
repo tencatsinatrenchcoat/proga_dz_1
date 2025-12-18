@@ -93,7 +93,9 @@ print(f'количество элементов в очереди : {len(q)}')
 ## primeri zapuska
 
 
-![test]()
+![test](https://github.com/tencatsinatrenchcoat/proga_dz_1/blob/main/images/lab09_images/stack.png)
+
+![test](https://github.com/tencatsinatrenchcoat/proga_dz_1/blob/main/images/lab09_images/queue.png)
 
 # B
 ```python
@@ -195,4 +197,4 @@ print(f'длина после добавления элементa: {len(sll)}')
 ## primeri zapuska
 
 
-![test]()
+![test](https://github.com/tencatsinatrenchcoat/proga_dz_1/blob/main/images/lab09_images/linkedstats.png)
