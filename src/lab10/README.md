@@ -5,7 +5,7 @@ from typing import Any, Optional
 
 
 class Stack:
-    def __init__(self, items: Optional[list[Any]] = None):  # Fixed: added items param
+    def __init__(self, items: Optional[list[Any]] = None):  
         self._data: list[Any] = []
         if items is not None:
             self._data.extend(items)
