@@ -1,8 +1,8 @@
 # Lab 10
-[README 10]()
+[README 10](https://github.com/tencatsinatrenchcoat/proga_dz_1/blob/main/src/lab10/README.md)
 
 # Lab 09
-[README 9]()
+[README 9](https://github.com/tencatsinatrenchcoat/proga_dz_1/blob/main/src/lab09/README.md)
 
 # Lab 08
 
