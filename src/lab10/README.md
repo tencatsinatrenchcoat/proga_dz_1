@@ -3,12 +3,13 @@
 from collections import deque
 from typing import Any, Optional
 
+
 class Stack:
     def __init__(self, items: Optional[list[Any]] = None):  # Fixed: added items param
         self._data: list[Any] = []
         if items is not None:
             self._data.extend(items)
-        
+
     def push(self, num) -> None:
         self._data.append(num)
 
@@ -18,23 +19,22 @@ class Stack:
         else:
             return self._data.pop()
 
-
     def peek(self) -> Any | None:
         if self.is_empty():
             return None
         else:
             return self._data[-1]
-        
 
     def is_empty(self) -> bool:
         if len(self._data) == 0:
             return True
         else:
             return False
-        
+
     def __len__(self) -> int:
         return len(self._data)
-    
+
+
 class Queue:
     def __init__(self, items: Optional[list[Any]] = None):
         self._data: deque[Any] = deque()
@@ -56,39 +56,38 @@ class Queue:
         else:
             return self._data[0]
 
-
-    def is_empty(self) -> bool:   
-        if len(self._data)==0:
+    def is_empty(self) -> bool:
+        if len(self._data) == 0:
             return True
         else:
             return False
-    
+
     def __len__(self) -> int:
         return len(self._data)
-    
+
 
 print("------Stack------")
 
-stack = Stack([12,24,36,48])
+stack = Stack([12, 24, 36, 48])
 
-print(f'убираем верхний элемент : {stack.pop()}')
-print(f'пустой ли стек? {stack.is_empty()}')
-print(f'число сверху : {stack.peek()}')
+print(f"убираем верхний элемент : {stack.pop()}")
+print(f"пустой ли стек? {stack.is_empty()}")
+print(f"число сверху : {stack.peek()}")
 stack.push(10000)
-print(f'значение сверху после добавления числа в стек : {stack.peek()}')
-print(f'длина: {len(stack)}')
+print(f"значение сверху после добавления числа в стек : {stack.peek()}")
+print(f"длина: {len(stack)}")
 
 print("------Queue------")
 
-q = Queue([12,24,36,48])
+q = Queue([12, 24, 36, 48])
 
-print(f'первый элемент: {q.peek()}')
+print(f"первый элемент: {q.peek()}")
 q.dequeue()
-print(f'первый элемент после удаления числа: {q.peek()}')
-q.enqueue(52)
-print(f'первый элемент после добавления: {q.peek()}')
-print(f'пустая ли очередь? {q.is_empty()}')
-print(f'количество элементов в очереди : {len(q)}')
+print(f"первый элемент после удаления числа: {q.peek()}")
+q.enqueue(1000)
+print(f"первый элемент после добавления в конец: {q.peek()}")
+print(f"пустая ли очередь? {q.is_empty()}")
+print(f"количество элементов в очереди : {len(q)}")
 ```
 ## primeri zapuska
 
@@ -101,10 +100,12 @@ print(f'количество элементов в очереди : {len(q)}')
 ```python
 from typing import Any, Iterator, Optional
 
+
 class Node:
-    def __init__(self, value: Any): 
+    def __init__(self, value: Any):
         self.value = value
         self.next: Optional[Node] = None
+
 
 class SinglyLinkedList:
     def __init__(self):
@@ -116,20 +117,19 @@ class SinglyLinkedList:
         new_node = Node(value)
         if self.head is None:
             self.head = new_node
-            self.tail = new_node  # Fixed: set tail when list is empty
+            self.tail = new_node 
         else:
-            self.tail.next = new_node  # Fixed: link current tail to new node
-            self.tail = new_node         # Fixed: update tail
+            self.tail.next = new_node  
+            self.tail = new_node  
         self._size += 1
 
     def prepend(self, value) -> None:
         node = Node(value)
-        node.next = self.head  # Fixed: properly set next pointer
+        node.next = self.head  
         self.head = node
         if self._size == 0:
             self.tail = node
         self._size += 1
-        
 
     def insert(self, idx: int, value: Any) -> None:
         if idx < 0 or idx > self._size:
@@ -140,23 +140,23 @@ class SinglyLinkedList:
         if idx == self._size:
             self.append(value)
             return
-    
+
     def remove(self, value) -> None:
         if self.head is None:
             return
 
         if self.head.value == value:
             self.head = self.head.next
-            if self.head is None: 
+            if self.head is None:
                 self.tail = None
             self._size -= 1
             return
-        
+
         current = self.head
         while current.next is not None and current.next.value != value:
             current = current.next
 
-        if current.next is not None: 
+        if current.next is not None:
             current.next = current.next.next
             if current.next is None:
                 self.tail = current
@@ -170,29 +170,29 @@ class SinglyLinkedList:
             current = current.next
 
     def __len__(self) -> int:
-            return self._size
+        return self._size
 
     def __repr__(self) -> str:
         values = list(self)
-        return (f"SinglyLinkedList({values}")
+        return f"SinglyLinkedList({values}"
 
 
 sll = SinglyLinkedList()
-print(f'длина : {len(sll)}')
+print(f"длина : {len(sll)}")
 
 sll.append(11)
 sll.append(22)
 sll.append(99)
 
-print(f'длина после добавления элементов: {len(sll)}') 
-print(f'односвязаный список : {list(sll)}')
+print(f"длина после добавления элементов: {len(sll)}")
+print(f"односвязаный список : {list(sll)}")
 
 sll.insert(1, 0.999)
-print(f'длина списка после добавления на 1 индекс числа 0.999 : {len(sll)}')
-print(f'односвязаный список : {list(sll)}')
+print(f"длина списка после добавления на 1 индекс числа 0.999 : {len(sll)}")
+print(f"односвязаный список : {list(sll)}")
 sll.append(1000)
-print(f'односвязанный список после добавления числа в конец : {list(sll)}')
-print(f'длина после добавления элементa: {len(sll)}')
+print(f"односвязанный список после добавления числа в конец : {list(sll)}")
+print(f"длина после добавления элементa: {len(sll)}")
 ```
 ## primeri zapuska
 

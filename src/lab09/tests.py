@@ -1,6 +1,6 @@
 from group import *
 
-group = Group("data\\lab09\\students.csv") 
+group = Group("data\\lab09\\students.csv")
 
 # added = group.add(Student('Петров Петр','2003-10-10','BIVT-999',5.0))
 
